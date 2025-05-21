@@ -1,0 +1,38 @@
+name: Build IzPack Installer with Maven (Java 8)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+
+    - name: Cache Maven local repository
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
+        key: maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          maven-
+
+    - name: Build with Maven
+      run: mvn clean package
+
+    - name: Upload installer artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: installer
+        path: target/installer.jar   # Adjust path if output jar differs
