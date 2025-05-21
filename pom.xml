@@ -2,16 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.test.installer</groupId>
-    <artifactId>izpack-example</artifactId>
+    <groupId>com.jcr.installer</groupId>
+    <artifactId>izpack-jcr</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
-    <name>IzPack Installer Example</name>
+    <name>IzPack Installer jcr</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <izpack.version>5.1.3</izpack.version>
+        <izpack.version>5.2.3</izpack.version>
     </properties>
 
     <modules>
